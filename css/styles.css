@@ -1,0 +1,141 @@
+
+.intro-text {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.intro-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.intro-text p {
+    font-size: 1.1em;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    padding: 4px 7%;
+}
+
+
+/*post grid*/
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    background-color: #f9f9f9;
+    padding: 10px 7%;
+}
+
+.post-thumbnail {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.post-thumbnail strong {
+    font-weight: bold;
+    color: #007bff; /* Blue color for tags */
+    margin-right: 5px;
+  }
+
+  .post-thumbnail a {
+    color: #007bff; /* Blue color for links */
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+.post-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+.post-thumbnail img {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd;
+}
+
+.post-thumbnail h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+
+  .post-thumbnail p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+  }
+
+.post-thumbnail {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .post-thumbnail:hover {
+    transform: translateY(-5px);
+  }
+  
+  
+  .post-thumbnail a:hover {
+    text-decoration: underline;
+  }
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .intro-text {
+        padding: 15px;
+    }
+
+    .intro-text h2 {
+        font-size: 1.8em;
+    }
+
+    .intro-text p {
+        font-size: 1em;
+    }
+
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 768px) {
+    .intro-text {
+        padding: 10px;
+    }
+
+    .intro-text h2 {
+        font-size: 1.6em;
+    }
+
+    .intro-text p {
+        font-size: 0.9em;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .intro-text {
+        padding: 5px;
+    }
+
+    .intro-text h2 {
+        font-size: 1.4em;
+    }
+
+    .intro-text p {
+        font-size: 0.8em;
+    }
+}
