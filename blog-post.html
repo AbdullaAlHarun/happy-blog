@@ -13,8 +13,8 @@
       src="https://kit.fontawesome.com/cee46afb86.js"
       crossorigin="anonymous"
     ></script>
-    <title>Happy Blog</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Happy Blog || Blog Post</title>
+    <link rel="stylesheet" href="css/blog-post.css" />
     <link rel="stylesheet" href="css/shared.css" />
   </head>
   <body>
@@ -30,7 +30,7 @@
         </a>
         <ul class="nav-links">
           <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="#posts-grid">All Blogs</a></li>
+          <li><a href="catagories.html">All Blogs</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
@@ -38,19 +38,25 @@
       </nav>
     </div>
 
-    <!--Main Content Section-->
-    <div>
-      <section class="intro-text">
-        <h2>Welcome to Our Happy Blog</h2>
-        <p>Embark on a journey of exploration and discovery with our exciting travel blog! Join us as we traverse the globe, seeking out hidden gems, awe-inspiring landscapes, and unforgettable experiences. From the majestic mountains of Switzerland to the vibrant streets of Tokyo, our blog is your passport to adventure.</p>
-        <p><b>Let the adventure begin!</b></p>
-    </section>
 
-    <section>
-      <div class="posts-grid" id="posts-grid">
-      </div>
-    </section>
+    <!-- Main Content Section -->
+    <div class="container">
+        <div class="post">
+            <h1 id="post-title"></h1>
+            <p id="post-author"></p>
+            <p id="post-date"></p>
+            <img id="post-image" src="" alt="Post Image">
+            <div id="post-content"></div>
+        </div>
     </div>
+
+    <!-- Latest Posts Section -->
+<section class="latest-posts">
+  <h2>Latest Posts</h2>
+  <div class="posts-grid" id="latest-posts-grid">
+      <!-- Latest posts will be dynamically added here -->
+  </div>
+</section>
 
     <!--Footer Sections-->
     <footer>
@@ -116,6 +122,6 @@
       <p class="copyright">Happy Blog &copy; 2024 - All right Reserved</p>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/post.js"></script> 
   </body>
 </html>
