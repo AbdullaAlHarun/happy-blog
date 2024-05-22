@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const shortBody = post.body.slice(0, 80);
                 // Add "See more" link to the body
                 const bodyContent = shortBody.length < post.body.length ?
-                    shortBody + '... <a href="/post/index.html?id=${post.id}">See more</a>' :
+                `${shortBody}... <a href="blog-post.html?id=${post.id}">See more</a>` :
                     shortBody;
                 // Format tags with "#" symbol and make them bold
                 const formattedTags = post.tags.map(tag => `<strong>#${tag}</strong>`).join(' ');
@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>${bodyContent}</p>
                     <p>${formattedTags}</p>
                 `;
+                postElement.addEventListener('click', () => {
+                    // Redirect to blog post page with post ID as query parameter
+                    window.location.href = `blog-post.html?id=${post.id}`;
+                   
+                });
                 postsGrid.appendChild(postElement);
             });
         })

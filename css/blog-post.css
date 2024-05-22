@@ -1,0 +1,99 @@
+.container {
+    padding: 10px 7%;
+}
+
+.post {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.post h1 {
+    color: #343a40;
+    margin-top: 0;
+}
+
+.post p {
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.latest-posts {
+    margin-top: 50px;
+    padding: 10px 7%;
+}
+
+.latest-posts h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.latest-posts .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .latest-posts .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .latest-posts .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.latest-posts .post-thumbnail {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    padding: 16px;
+}
+
+.latest-posts .post-thumbnail:hover {
+    transform: translateY(-5px);
+}
+
+.latest-posts .post-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.latest-posts .post-thumbnail h2 {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.latest-posts .post-thumbnail p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.latest-posts .post-thumbnail p:last-child {
+    margin-bottom: 0;
+}
+
+.latest-posts .post-thumbnail a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.latest-posts .post-thumbnail a:hover {
+    text-decoration: underline;
+}
