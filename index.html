@@ -13,9 +13,16 @@
       src="https://kit.fontawesome.com/cee46afb86.js"
       crossorigin="anonymous"
     ></script>
+
     <title>Happy Blog</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/shared.css" />
+
+    <!-- Swiper CSS (this is thirdy pearty carousle, I am using this from https://swiperjs.com/)-->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
   </head>
   <body>
     <!--Header Section-->
@@ -39,17 +46,34 @@
     </div>
 
     <!--Main Content Section-->
-    <div>
+    <div class="hero">
+      <section class="carousel">
+        <div class="swiper-container">
+          <div class="swiper-wrapper" id="swiper-wrapper">
+            <!-- Slides will be dynamically added here -->
+          </div>
+         
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
+
       <section class="intro-text">
         <h2>Welcome to Our Happy Blog</h2>
-        <p>Embark on a journey of exploration and discovery with our exciting travel blog! Join us as we traverse the globe, seeking out hidden gems, awe-inspiring landscapes, and unforgettable experiences. From the majestic mountains of Switzerland to the vibrant streets of Tokyo, our blog is your passport to adventure.</p>
+        <p>
+          Embark on a journey of exploration and discovery with our exciting
+          travel blog! Join us as we traverse the globe, seeking out hidden
+          gems, awe-inspiring landscapes, and unforgettable experiences. From
+          the majestic mountains of Switzerland to the vibrant streets of Tokyo,
+          our blog is your passport to adventure.
+        </p>
         <p><b>Let the adventure begin!</b></p>
-    </section>
+      </section>
 
-    <section>
-      <div class="posts-grid" id="posts-grid">
-      </div>
-    </section>
+      <section>
+        <div class="posts-grid" id="posts-grid"></div>
+      </section>
     </div>
 
     <!--Footer Sections-->
@@ -57,14 +81,15 @@
       <div class="row">
         <div class="col">
           <a
-          href="index.html"
-          aria-label="logo, click to go to home"
-          class="logo"
-        >
-          Happy<span>Blog</span>
-        </a>
-          <p style="margin-top: 14px;">
-            Discover, Dream, and Travel with HappyBlog - Where Every Trip is a Story!
+            href="index.html"
+            aria-label="logo, click to go to home"
+            class="logo"
+          >
+            Happy<span>Blog</span>
+          </a>
+          <p style="margin-top: 14px">
+            Discover, Dream, and Travel with HappyBlog - Where Every Trip is a
+            Story!
           </p>
         </div>
         <div class="col">
@@ -117,5 +142,8 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   </body>
 </html>
