@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=KoHo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/cee46afb86.js" crossorigin="anonymous"></script>
+    <title>Login Registration Form</title>
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <link rel="stylesheet" href="../css/shared.css" />
+</head>
+<body>
+      <!--Header Section-->
+      <div class="header">
+        <nav id="navBar">
+          <a
+            href="../index.html"
+            aria-label="logo, click to go to home"
+            class="logo"
+          >
+            Happy<span>Blog</span>
+          </a>
+          <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="#posts-grid">All Blogs</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <i class="fas fa-bars" aria-label="menu" onclick="togglebtn()"></i>
+        </nav>
+      </div>
+  
+
+    <div class="hero">
+        <div class="form-box">
+            <div class="button-box">
+               <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <div class="social-links">
+                <i class="fa fa-facebook"> <a href="#"></a> </i>
+                <i class="fa fa-instagram"><a href="#"></a> </i>
+                <i class="fa fa-twitter"><a href="#"></a> </i>
+                <i class="fa fa-youtube"><a href="#"></a> </i>
+            </div>
+
+            <!--Log in Form  -->
+            <form id="login" class="input-group">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box">
+                <span>Remember Password</span>
+                <button type="submit" class="submit-btn"><a href="index.html">Log in</a></button>
+            </form>
+
+                <!--Registation Form  -->
+            <form id="register" class="input-group">
+                <input type="text" class="input-field" placeholder="User Id" required>
+                <input type="email" class="input-field" placeholder="Email Id" required>
+                <input type="text" class="input-field" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box">
+                <span>I agree to the terms & condition</span>
+                <button type="submit" class="submit-btn"> <a href="index.html">Register</a> </button>
+            </form>
+        </div> 
+    </div>
+    
+    <!--Javascripts Code-->
+   <script src="js/login.js"></script>
+</body>
+</html>
