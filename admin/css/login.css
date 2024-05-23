@@ -107,6 +107,12 @@
     border-radius: 30px;
 }
 
+.submit-btn a {
+    font-weight: bold;
+    color: orangered;
+    text-decoration: none;
+}
+
 .check-box {
     margin: 30px 10px 30px 0;
 }
