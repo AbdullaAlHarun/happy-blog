@@ -1,3 +1,9 @@
+var navBar = document.getElementById("navBar");
+
+function togglebtn() {
+    navBar.classList.toggle("hidemenu")
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const postsGrid = document.getElementById('posts-grid');
 

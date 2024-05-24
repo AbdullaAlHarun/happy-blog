@@ -1,0 +1,64 @@
+.container {
+    margin: 100px 7%;
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Thumbnail styles */
+.thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+/* Button styles */
+.update-btn  {
+    padding: 8px 12px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-right: 4px;
+}
+
+.delete-btn {
+    background-color: red;
+    padding: 8px 12px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    margin-right: 4px;
+}
+
+.update-btn:hover, .delete-btn:hover {
+    background-color: #45a049;
+}
+
+.delete-btn:hover {
+    background-color: orangered;
+}
+
+/* FontAwesome icon styles */
+.update-btn i, .delete-btn i {
+    margin-right: 5px;
+}
+

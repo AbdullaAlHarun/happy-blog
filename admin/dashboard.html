@@ -1,40 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=KoHo:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/cee46afb86.js" crossorigin="anonymous"></script>
-    <title>Login Registration Form</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=KoHo:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/cee46afb86.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../css/shared.css" />
-</head>
-<body>
-      <!--Header Section-->
-      <div class="header">
-        <nav id="navBar">
-          <a
-            href="../index.html"
-            aria-label="logo, click to go to home"
-            class="logo"
-          >
-            Happy<span>Blog</span>
-          </a>
-          <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="#posts-grid">All Blogs</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-          <a href="login.html" class="hero-btn" aria-label="sign in button">Sign In</a>
-          <i class="fas fa-bars" aria-label="menu" onclick="togglebtn()"></i>
-        </nav>
-      </div>
-  
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <!--Header Section-->
+    <div class="header">
+      <nav id="navBar">
+        <a
+          href="../index.html"
+          aria-label="logo, click to go to home"
+          class="logo"
+        >
+          Happy<span>Blog</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#posts-grid"><i class="fa-solid fa-pen-to-square"></i>Create Post</a></li>
+   
+        </ul>
+        <a
+          id="loginLogoutBtn"
+          href="login.html"
+          class="hero-btn"
+          aria-label="sign in button"
+          >Login</a
+        >
+        <i class="fas fa-bars" aria-label="menu" onclick="togglebtn()"></i>
+      </nav>
+    </div>
 
-    
+    <div class="container">
+      <!-- Post Table -->
+      <table id="postTable">
+        <thead>
+          <tr>
+            <th>Thumbnail</th>
+            <th>Title</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Posts will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+
     <!--Javascripts Code-->
-   <script src="js/login.js"></script>
-</body>
+    <script src="js/dashboard.js"></script>
+  </body>
 </html>
