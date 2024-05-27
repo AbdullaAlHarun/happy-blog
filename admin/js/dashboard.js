@@ -1,110 +1,118 @@
-// Function to handle logout
-function logout() {
-    // Clear token from localStorage
-    localStorage.removeItem('token');
-    // Redirect to login page
-    window.location.href = 'login.html';
-}
-
-// Check if user is logged in
-const token = localStorage.getItem('token');
-const loginLogoutBtn = document.getElementById('loginLogoutBtn');
-
-if (token) {
-    // User is logged in, change button to Logout
-    loginLogoutBtn.textContent = 'Logout';
-    // Set logout functionality
-    loginLogoutBtn.onclick = logout;
-} else {
-    // User is not logged in, redirect to login page
-    window.location.href = 'login.html';
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Function to handle post deletion
-    function deletePost(postId) {
-        // Get the username (or name) from localStorage
-  const username = localStorage.getItem('username'); // Replace 'username' with the key you use to store the username
-  
-  // Get the access token from localStorage
-  const accessToken = localStorage.getItem('accessToken');
-  
-  // Construct the URL for the DELETE request
-  const deleteUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
-  
-  // Send the DELETE request
-  fetch(deleteUrl, {
-    method: 'DELETE',
-    headers: {
-      'Authorization': `Bearer ${accessToken}`
+(function () {
+    // Function to handle logout
+    function logout() {
+      // Clear token and API key from localStorage
+      localStorage.removeItem('token');
+      localStorage.removeItem('apiKey');
+      // Redirect to login page
+      window.location.href = 'login.html';
     }
-  })
-  .then(response => {
-    // Check if the response status is 204 (No Content)
-    if (response.status === 204) {
-      // Post deleted successfully
-      alert('Post deleted successfully.');
-      // Reload the page or fetch new posts
-      fetchPosts(); // Implement a function to fetch and display posts again
+  
+    // Check if user is logged in
+    const token = localStorage.getItem('token');
+    const loginLogoutBtn = document.getElementById('loginLogoutBtn');
+  
+    if (token) {
+      // User is logged in, change button to Logout
+      loginLogoutBtn.textContent = 'Logout';
+      // Set logout functionality
+      loginLogoutBtn.onclick = logout;
     } else {
-      // Post deletion failed
-      throw new Error('Failed to delete post.');
+      // User is not logged in, redirect to login page
+      window.location.href = 'login.html';
     }
-  })
-  .catch(error => {
-    // Log and alert the error
-    console.error('Error deleting post:', error);
-    alert('Failed to delete post.');
-  });
-}
+  
 
-    // Fetch and display the dashboard content here
-    fetch('https://v2.api.noroff.dev/blog/posts/happy_blog')
-        .then(response => response.json())
-        .then(data => {
+    
+    document.addEventListener('DOMContentLoaded', function () {
+      // Function to handle post deletion
+      function deletePost(postId) {
+        const username = localStorage.getItem('username');
+        const accessToken = localStorage.getItem('accessToken');
+        const deleteUrl = `https://v2.api.noroff.dev/blog/posts/${username}/${postId}`;
+  
+        fetch(deleteUrl, {
+          method: 'DELETE',
+          headers: {
+            'Authorization': `Bearer ${accessToken}`,
+            'x-api-key': apiKey // Add API key header
+          }
+        })
+          .then(response => {
+            if (response.status === 204) {
+              alert('Post deleted successfully.');
+              fetchPosts(); // Fetch and display posts again after deletion
+            } else {
+              throw new Error('Failed to delete post.');
+            }
+          })
+          .catch(error => {
+            console.error('Error deleting post:', error);
+            alert('Failed to delete post.');
+          });
+      }
+  
+      // Function to fetch and display posts
+      function fetchPosts() {
+        const apiKey = localStorage.getItem('apiKey'); // Retrieve API key from localStorage
+        fetch('https://v2.api.noroff.dev/blog/posts/happy_blog', {
+          headers: {
+            'x-api-key': apiKey // Add API key header
+          }
+        })
+          .then(response => response.json())
+          .then(data => {
             const posts = data.data;
-
             const postTable = document.getElementById('postTable');
-
+            if (!postTable) {
+              console.error('Post table element not found.');
+              return;
+            }
+            postTable.querySelector('tbody').innerHTML = ''; // Clear existing rows
+  
             // Populate table with posts
             posts.forEach(post => {
-                const tr = document.createElement('tr');
-
-                // Thumbnail
-                const thumbnailCell = document.createElement('td');
-                const thumbnail = document.createElement('img');
-                thumbnail.src = post.media.url;
-                thumbnail.alt = post.media.alt;
-                thumbnail.className = 'thumbnail';
-                thumbnailCell.appendChild(thumbnail);
-                tr.appendChild(thumbnailCell);
-
-                // Title
-                const titleCell = document.createElement('td');
-                titleCell.textContent = post.title;
-                tr.appendChild(titleCell);
-
-                // Actions
-                const actionsCell = document.createElement('td');
-                const updateBtn = document.createElement('button');
-                updateBtn.textContent = 'Update Post';
-                updateBtn.className = 'update-btn'; // Add class for styling
-                updateBtn.onclick = () => updatePost(post.id);
-                actionsCell.appendChild(updateBtn);
-
-                const deleteBtn = document.createElement('button');
-                deleteBtn.textContent = 'Delete Post';
-                deleteBtn.className = 'delete-btn'; // Add class for styling
-                deleteBtn.onclick = () => deletePost(post.id); // Call deletePost function with post ID
-                actionsCell.appendChild(deleteBtn);
-
-                tr.appendChild(actionsCell);
-
-                // Append row to table body
-                postTable.querySelector('tbody').appendChild(tr);
+              const tr = document.createElement('tr');
+  
+              // Thumbnail
+              const thumbnailCell = document.createElement('td');
+              const thumbnail = document.createElement('img');
+              thumbnail.src = post.media.url;
+              thumbnail.alt = post.media.alt;
+              thumbnail.className = 'thumbnail';
+              thumbnailCell.appendChild(thumbnail);
+              tr.appendChild(thumbnailCell);
+  
+              // Title
+              const titleCell = document.createElement('td');
+              titleCell.textContent = post.title;
+              tr.appendChild(titleCell);
+  
+              // Actions
+              const actionsCell = document.createElement('td');
+              const updateBtn = document.createElement('button');
+              updateBtn.textContent = 'Update Post';
+              updateBtn.className = 'update-btn';
+              updateBtn.onclick = () => window.location.href = `update-post.html?id=${post.id}`;
+              actionsCell.appendChild(updateBtn);
+  
+              const deleteBtn = document.createElement('button');
+              deleteBtn.textContent = 'Delete Post';
+              deleteBtn.className = 'delete-btn';
+              deleteBtn.onclick = () => deletePost(post.id);
+              actionsCell.appendChild(deleteBtn);
+  
+              tr.appendChild(actionsCell);
+  
+              // Append row to table body
+              postTable.querySelector('tbody').appendChild(tr);
             });
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             console.error('Error fetching posts:', error);
-        });
-});
+          });
+      }
+  
+      fetchPosts(); // Initial fetch of posts
+    });
+  })();

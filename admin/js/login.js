@@ -1,3 +1,4 @@
+// login.js
 var x = document.getElementById("login");
 var y = document.getElementById("register");
 var z = document.getElementById("btn");
@@ -33,14 +34,21 @@ async function handleLogin(event) {
         }
 
         const data = await response.json();
-        const token = data.token;
+        const token = data.data.accessToken; // Extract access token from response
+        const apiKey = data.data.key; // Extract API key from response
+        const username = data.data.name; // Extract username from response
         localStorage.setItem('token', token);
+        localStorage.setItem('apiKey', apiKey); // Store the API key in localStorage
+        localStorage.setItem('username', username); // Store the username in localStorage
+        localStorage.setItem(`bearerToken_${username}`, token); // Store the access token with the username as part of the key
+        localStorage.setItem(`apiKey_${username}`, apiKey); // Store the API key with the username as part of the key
         alert('Login successful');
         window.location.href = 'dashboard.html';
     } catch (error) {
         alert(error.message);
     }
 }
+
 
 async function handleRegister(event) {
     event.preventDefault();
