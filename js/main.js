@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                  <div class="slide-content">
                      <h2>${post.title}</h2>
                      <p>${post.body.slice(0, 220)}...</p>
+                     <br>
                      <a href="blog-post.html?id=${post.id}" class="read-more-btn">Read More</a>
                  </div>
              `;
