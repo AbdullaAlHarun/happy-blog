@@ -1,26 +1,26 @@
 (function () {
-    // // Function to handle logout
-    // function logout() {
-    //     // Clear token and API key from localStorage
-    //     localStorage.removeItem('token');
-    //     localStorage.removeItem('apiKey');
-    //     // Redirect to login page
-    //     window.location.href = 'login.html';
-    // }
+    // Function to handle logout
+    function logout() {
+        // Clear token and API key from localStorage
+        localStorage.removeItem('token');
+        localStorage.removeItem('apiKey');
+        // Redirect to login page
+        window.location.href = 'login.html';
+    }
 
-    // // Check if user is logged in
-    // const token = localStorage.getItem('token');
-    // const loginLogoutBtn = document.getElementById('loginLogoutBtn');
+    // Check if user is logged in
+    const token = localStorage.getItem('token');
+    const loginLogoutBtn = document.getElementById('loginLogoutBtn');
 
-    // if (token) {
-    //     // User is logged in, change button to Logout
-    //     loginLogoutBtn.textContent = 'Logout';
-    //     // Set logout functionality
-    //     loginLogoutBtn.onclick = logout;
-    // } else {
-    //     // User is not logged in, redirect to login page
-    //     window.location.href = 'login.html';
-    // }
+    if (token) {
+        // User is logged in, change button to Logout
+        loginLogoutBtn.textContent = 'Logout';
+        // Set logout functionality
+        loginLogoutBtn.onclick = logout;
+    } else {
+        // User is not logged in, redirect to login page
+        window.location.href = 'login.html';
+    }
 
     document.addEventListener('DOMContentLoaded', function () {
         // Function to show loader
