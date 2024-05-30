@@ -71,6 +71,28 @@
         </p>
         <p><b>Let the adventure begin!</b></p>
       </section>
+      
+      <!-- New Search, Filter, Sort Section -->
+    <section class="search-filter-sort">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search for posts..." />
+        <button onclick="searchPosts()">Search</button>
+      </div>
+      <div class="filter-bar">
+        <select id="filter-select" onchange="filterPosts()">
+          <option value="">All Categories</option>
+          <option value="travel">Travel</option>
+          <option value="food">Food</option>
+          <option value="lifestyle">Lifestyle</option>
+        </select>
+      </div>
+      <div class="sort-bar">
+        <select id="sort-select" onchange="sortPosts()">
+          <option value="date">Sort by Date</option>
+          <option value="title">Sort by Title</option>
+        </select>
+      </div>
+    </section>
 
       <section>
         <div class="posts-grid" id="posts-grid"></div>
